@@ -57,6 +57,7 @@ namespace jampacked
                     blockWrite.Write(start);
                     blockWrite.Write(inc.flags);
                     break;
+                case libJAudio.Loaders.JA_BAALoader.BNK:
                 case libJAudio.Loaders.JA_BAALoader.BMS:
                     blockWrite.Write(inc.uid);
                     blockWrite.Write(start);
@@ -68,7 +69,7 @@ namespace jampacked
                 case libJAudio.Loaders.JA_BAALoader.BST:
                 case libJAudio.Loaders.JA_BAALoader.BSTN:
                 case libJAudio.Loaders.JA_BAALoader.BAAC:
-                case libJAudio.Loaders.JA_BAALoader.BNK:
+                
                 case libJAudio.Loaders.JA_BAALoader.BSC:
                     blockWrite.Write(start);
                     blockWrite.Write(end);
