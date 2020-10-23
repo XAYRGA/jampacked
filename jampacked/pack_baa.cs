@@ -71,7 +71,7 @@ namespace jampacked
                 case libJAudio.Loaders.JA_BAALoader.BNK:
                 case libJAudio.Loaders.JA_BAALoader.BSC:
                     blockWrite.Write(start);
-                    blockWrite.Write(end - start);
+                    blockWrite.Write(end);
                     break;
                 default:
                     cmdarg.assert($"cannot pack section type {inc.hash:X5}");
@@ -100,7 +100,7 @@ namespace jampacked
                     blockWrite.Write((int)0x00);
             }
             blockWrite.Write(libJAudio.Loaders.JA_BAALoader.BAA_Footer);
-
+            blockWrite.Flush();
             var head_anchor = 4l; // Start past the AA_< 
             var tail_anchor = blockWrite.BaseStream.Position;
             Console.WriteLine($"Header ends at 0x{tail_anchor:X}");
