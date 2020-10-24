@@ -19,11 +19,11 @@ namespace jampacked
                 case JAIInitSectionType.IBNK:
                     br.BaseStream.Position = sect.start;
                     br.ReadUInt32(); // Skip IBNK header.
-                    return br.ReadInt32(); // next operator is size
+                    return br.ReadInt32() + 8; // next operator is size
                 case JAIInitSectionType.WSYS:
                     br.BaseStream.Position = sect.start;
                     br.ReadUInt32(); // Skip WSYS header.
-                    return br.ReadInt32(); // next operator is size
+                    return br.ReadInt32() + 8; // next operator is size
                 case JAIInitSectionType.UNKNOWN:
                     br.BaseStream.Position = sect.start;
                     br.ReadInt32();
@@ -64,7 +64,8 @@ namespace jampacked
                     hash = cSect.raw_header,
                     path = $"include/{fileIndex}{extension}",
                     type = cSect.type.ToString(),
-                    uid = cSect.number,                     
+                    uid = cSect.number,
+                    flags = cSect.flags,
                 };
                 
                 fileIndex++;
