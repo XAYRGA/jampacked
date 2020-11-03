@@ -36,7 +36,6 @@ namespace jampacked
                 case libJAudio.Loaders.JA_BAALoader.BAAC:
                 case libJAudio.Loaders.JA_BAALoader.BNK:
                 case libJAudio.Loaders.JA_BAALoader.BSC:
-         
                     ret.size = 2;
                     break;
                 default:
@@ -58,7 +57,6 @@ namespace jampacked
                     blockWrite.Write(inc.flags);
                     break;
                 case libJAudio.Loaders.JA_BAALoader.BNK:
-                case libJAudio.Loaders.JA_BAALoader.BMS:
                     blockWrite.Write(inc.uid);
                     blockWrite.Write(start);
                     break;
@@ -71,6 +69,11 @@ namespace jampacked
                 case libJAudio.Loaders.JA_BAALoader.BAAC:
                 
                 case libJAudio.Loaders.JA_BAALoader.BSC:
+                    blockWrite.Write(start);
+                    blockWrite.Write(end);
+                    break;
+                case libJAudio.Loaders.JA_BAALoader.BMS:
+                    blockWrite.Write(inc.uid);
                     blockWrite.Write(start);
                     blockWrite.Write(end);
                     break;
@@ -123,7 +126,6 @@ namespace jampacked
                     blockWrite.Write((byte)0x00); // oh god im sorry 
                     blockWrite.Flush();
                 }
-               
                 var ePos = blockWrite.BaseStream.Position; // store end position
                 tail_anchor = ePos; // set tail anchor to end pos
                 blockWrite.BaseStream.Position = head_anchor; // jump to head anchor 

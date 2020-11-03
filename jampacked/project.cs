@@ -20,4 +20,25 @@ namespace jampacked
         public int uid;
         public int flags;
     }
+
+
+
+    public class jAAFProjectFile
+    {
+        public string originalFile;
+        public string projectName;
+        public string format = "AAF";
+        public jAAFIncludeRecord[] banks;
+        public jAAFIncludeRecord[] waves;
+        public jAAFIncludeRecord[] includes;
+    }
+
+    public class jAAFIncludeRecord
+    {
+        public int hash;
+        public string type;
+        public string path;
+        public int uid;
+        public int flags;
+    }
 }

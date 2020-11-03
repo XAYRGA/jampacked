@@ -122,7 +122,8 @@ namespace libJAudio.Loaders
                             // (it's probably there for a reason)
                             var newSect = new JAIInitSection();
                             newSect.raw_header = ChunkID;
-                            newSect.number = aafRead.ReadInt32() & 0xFFFF; // For some reason this has 01 as the first byte? Bound to cause issues later.
+                            newSect.number = aafRead.ReadInt32(); // For some reason this has 01 as the first byte? Bound to cause issues later.
+                      
                             // We're just going to take the last 16 bits of it with an & 0xFFFF to trim off that 01.
                             newSect.start = aafRead.ReadInt32(); // Read the start offset
                             newSect.size = aafRead.ReadInt32() - newSect.start; // Read the end offset

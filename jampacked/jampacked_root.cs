@@ -8,6 +8,14 @@ namespace jampacked
     {
         static void Main(string[] args)
         {
+#if DEBUG 
+            args = new string[]
+            {
+                "unpack",
+                "22_Sect2.baa",
+                "kartdemo_s22_2_proj"
+            };
+#endif
             cmdarg.cmdargs = args;
             Console.WriteLine("jampacked JAudio Archive packer / unpacker");
             var operation = cmdarg.assertArg(0, "operation");

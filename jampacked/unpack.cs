@@ -36,7 +36,8 @@ namespace jampacked
                 case JAIInitType.AAF:
                     {
                         var iJSystemInit = new JA_AAFLoader();
-                        iJSystemInit.load(ref jFileData);
+                        var sect = iJSystemInit.load(ref jFileData);
+                        unpack_aaf(sect, jBinaryReader, projectdir, file);
                         break;
                     }
                 case JAIInitType.BAA:

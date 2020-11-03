@@ -58,7 +58,7 @@ namespace jampacked
                 var sectionData = br.ReadBytes(size);
                 var extension = util.GetFileExtension(cSect);
                 File.WriteAllBytes($"{projDir}/include/{fileIndex}{extension}", sectionData);
-                Console.WriteLine($"->\tWrote {fileIndex}.{extension}");
+                Console.WriteLine($"->\tWrote {fileIndex}{extension}");
                 pFile.includes[i] = new jBAAIncludeRecord()
                 {
                     hash = cSect.raw_header,
