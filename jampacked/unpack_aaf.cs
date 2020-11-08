@@ -129,8 +129,7 @@ namespace jampacked
                             };
                             sectCounter++;
                             instCluster = true;
-                            continue;
-                            break;
+                            continue;                            
                         case JAIInitSectionType.WSYS:
                             if (wavCluster == true)
                                 continue;
@@ -145,7 +144,6 @@ namespace jampacked
                             sectCounter++;
                             wavCluster = true;
                             continue;
-                            break;
                     }
                 }
                 var size = aaf_GetSectionSize(cSect, br); // load section size from function (because BAA omits data for a lot of this :) )

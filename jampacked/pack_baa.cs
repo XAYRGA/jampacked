@@ -105,7 +105,7 @@ namespace jampacked
             }
             blockWrite.Write(libJAudio.Loaders.JA_BAALoader.BAA_Footer);
             blockWrite.Flush();
-            var head_anchor = 4l; // Start past the AA_< 
+            var head_anchor = 4L; // Start past the AA_< 
             var tail_anchor = blockWrite.BaseStream.Position;
             Console.WriteLine($"Header ends at 0x{tail_anchor:X}");
             Console.WriteLine($"-> Project has {project.includes.Length} includes.");

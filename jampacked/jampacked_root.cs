@@ -11,9 +11,9 @@ namespace jampacked
 #if DEBUG 
             args = new string[]
             {
-                "unpack",
-                "22_Sect2.baa",
-                "kartdemo_s22_2_proj"
+                "pack",
+                "luaman_proj",
+                "test.aaf"
             };
 #endif
             cmdarg.cmdargs = args;

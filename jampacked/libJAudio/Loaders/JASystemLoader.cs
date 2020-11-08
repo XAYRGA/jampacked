@@ -41,7 +41,9 @@ namespace libJAudio.Loaders
             var sections = ldr.load(ref data);
             var stm = new System.IO.MemoryStream(data); // Create a stream for it
             var read = new Be.IO.BeBinaryReader(stm); // Create a reader around the stream
+#pragma warning disable CS0219 // Variable is assigned but its value is never used
             var wscount = 0;
+#pragma warning restore CS0219 // Variable is assigned but its value is never used
             var inscount = 0;
 
             for (int i = 0; i < sections.Length; i++) // Loop through the AAF

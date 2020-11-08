@@ -45,17 +45,25 @@ namespace jampacked
             Console.WriteLine($"Pack project type {arcType}");
             switch (arcType)
             {
-                case "BAA":                    
-                    var projectFile = JsonConvert.DeserializeObject<jBAAProjectFile>(projectFileData);
-                    var outName = cmdarg.tryArg(2, "outName");
-                    if (outName == null)
-                        outName = projectFile.originalFile;
+                case "BAA":
+                    {
+                        var projectFile = JsonConvert.DeserializeObject<jBAAProjectFile>(projectFileData);
+                        var outName = cmdarg.tryArg(2, "outName");
+                        if (outName == null)
+                            outName = projectFile.originalFile;
 
-                    pack.pack_baa(file, projectFile, outName);
-                    break;
+                        pack.pack_baa(file, projectFile, outName);
+                        break;
+                    }
                 case "AAF":
-
-                    break;
+                    {
+                        var projectFile = JsonConvert.DeserializeObject<jAAFProjectFile>(projectFileData);
+                        var outName = cmdarg.tryArg(2, "outName");
+                        if (outName == null)
+                            outName = projectFile.originalFile;
+                        pack.pack_aaf(file, projectFile, outName);
+                        break;
+                    }
                 case "BX":
 
                     break;
