@@ -15,22 +15,6 @@ namespace jampacked
         {
             switch (sect.type)
             {
-                /*
-                // The following is true for both V1-Type banks
-                case JAIInitSectionType.IBNK:
-                    br.BaseStream.Position = sect.start;
-                    br.ReadUInt32(); // Skip IBNK header.
-                    return br.ReadInt32() + 8; // next operator is size
-                case JAIInitSectionType.WSYS:
-                    br.BaseStream.Position = sect.start;
-                    br.ReadUInt32(); // Skip WSYS header.
-                    return br.ReadInt32() + 8; // next operator is size
-                   
-                case JAIInitSectionType.UNKNOWN:
-                    br.BaseStream.Position = sect.start;
-                    br.ReadInt32();
-                    return br.ReadInt32();
-                     */
                 default:
                     return sect.size;
             }

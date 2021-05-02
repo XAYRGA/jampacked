@@ -91,7 +91,6 @@ namespace jampacked
             var blockStrm = File.OpenWrite(fileName);
             var blockWrite = new BeBinaryWriter(blockStrm);
 
-
             Console.WriteLine("Prewriting BAA header data");
             // Prewrite header data so it's length is absolute
             blockWrite.Write(libJAudio.Loaders.JA_BAALoader.BAA_Header);
@@ -118,12 +117,9 @@ namespace jampacked
                 Console.WriteLine($"->\t{projectDir}/{dep.path}\tL:0x{data.Length:X} added.");
                 var sPos = tail_anchor; // set start pos to tail anchor
                 blockWrite.Write(data); // sprawl data into file 
-                //util.padTo(blockWrite, 8); // pad to 32
                 while ((blockWrite.BaseStream.Position  & 0xF) != 8)
                 {
-                    //Console.WriteLine("padding...");
-                    // Console.WriteLine(blockWrite.BaseStream.Position % 16);
-                    blockWrite.Write((byte)0x00); // oh god im sorry 
+                    blockWrite.Write((byte)0x00);
                     blockWrite.Flush();
                 }
                 var ePos = blockWrite.BaseStream.Position; // store end position
