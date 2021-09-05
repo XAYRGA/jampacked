@@ -36,6 +36,8 @@ namespace jampacked
                     return ".stm";
                 case JAIInitSectionType.WSYS:
                     return ".wsy";
+                case JAIInitSectionType.BDI_DATA:
+                    return ".bdi";
             }
         }
 

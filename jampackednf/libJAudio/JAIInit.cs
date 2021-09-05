@@ -26,6 +26,7 @@ namespace libJAudio
         SOUND_TABLE_STRINGS = 7,
         STREAM_FILE_TABLE = 8,
         FC_ARCHIVE = 9,
+        BDI_DATA = 10,
 
         CUSTOM_DATA = 254,
         UNKNOWN = 255

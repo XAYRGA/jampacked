@@ -12,7 +12,7 @@ namespace jampacked
             args = new string[]
             {
                 "pack",
-                "luaman_proj",
+                "out",
                 "test.aaf"
             };
 #endif

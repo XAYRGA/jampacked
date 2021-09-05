@@ -138,6 +138,16 @@ namespace libJAudio.Loaders
                             stk.Push(NewSect); // Then push  to return stack
                             break;
                         }
+                    case 8:
+                        {
+                            var NewSect = loadRegularSection(aafRead); // Load the regular  section
+                            NewSect.raw_header = ChunkID;
+                            NewSect.type = JAIInitSectionType.BDI_DATA; // Don't know what type it is, wasn't in the case
+                            NewSect.order = order; // The order it was loaded in  (for later reassembly)
+                            order++; // Increment Order
+                            stk.Push(NewSect); // Push to return stack
+                            break;
+                        }
 
                 }
             }

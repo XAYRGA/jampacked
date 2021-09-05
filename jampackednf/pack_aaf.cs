@@ -29,6 +29,7 @@ namespace jampacked
                 case 5: // Stream Map
                 case 6: // Unknown 
                 case 7: // Unknown
+                case 8: // Build Date Info
                     ret.size = 3;
                     break;
                 case 2:
@@ -53,6 +54,7 @@ namespace jampacked
                 case 5: // Stream Map
                 case 6: // Unknown 
                 case 7: // Unknown
+                case 8: // Build Date Info
                     blockWrite.Write(inc.hash); // sprawl out hash 
                     blockWrite.Write(start);
                     blockWrite.Write(size);
@@ -116,7 +118,7 @@ namespace jampacked
               
             }
 
-            while ((blockWrite.BaseStream.Position & 0xF) != 0)
+            while ((blockWrite.BaseStream.Position %32 ) != 0)
             {
                 blockWrite.Write((byte)0x00); // oh god im sorry 
                 blockWrite.Flush();
@@ -148,7 +150,8 @@ namespace jampacked
                             Console.WriteLine($"->\t{projectDir}/{waveDep.path}\t(bnk)L:0x{waveData.Length:X} added.");
                             var startPos = tail_anchor; // set start pos to tail anchor
                             blockWrite.Write(waveData); // sprawl data into file 
-                            while ((blockWrite.BaseStream.Position & 0xF) != 0)
+
+                            while ((blockWrite.BaseStream.Position % 32) != 0)
                             {
                                 blockWrite.Write((byte)0x00); // oh god im sorry 
                                 blockWrite.Flush();
@@ -180,7 +183,8 @@ namespace jampacked
                                 Console.WriteLine($"->\t{projectDir}/{waveDep.path}\t(wsy)L:0x{waveData.Length:X} added.");
                                 var startPos = tail_anchor; // set start pos to tail anchor
                                 blockWrite.Write(waveData); // sprawl data into file 
-                                while ((blockWrite.BaseStream.Position & 0xF) != 0)
+
+                                while ((blockWrite.BaseStream.Position % 32) != 0)
                                 {
                                     blockWrite.Write((byte)0x00); // oh god im sorry 
                                     blockWrite.Flush();
